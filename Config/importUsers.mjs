@@ -2,7 +2,7 @@
 
 export const userDataObj = [
     {
-        "Username": "tammiTestUser8@cmentor.com",
+        "Username": "SethTestUser8@cmentor.com",
         "Email": "tammi@cmentor.com",
         "Alias": "TammiTst",
         "LastName": "Krobert",
@@ -11,7 +11,7 @@ export const userDataObj = [
         "TimeZoneSidKey": "America/New_York",
     },
     {
-        "Username": "tammiTestUser9@cmentor.com",
+        "Username": "SethTestUser9@cmentor.com",
         "Email": "tammi@cmentor.com",
         "Alias": "TammiTst",
         "LastName": "Krobert",
@@ -20,7 +20,7 @@ export const userDataObj = [
         "TimeZoneSidKey": "America/New_York",
     },
     {
-        "Username": "tammiTestUser10@cmentor.com",
+        "Username": "SethTestUser10@cmentor.com",
         "Email": "tammi@cmentor.com",
         "Alias": "TammiTst",
         "LastName": "Krobert",
@@ -29,7 +29,7 @@ export const userDataObj = [
         "TimeZoneSidKey": "America/New_York",
     },
     {
-        "Username": "tammiTestUser11@cmentor.com",
+        "Username": "SethTestUser11@cmentor.com",
         "Email": "tammi@cmentor.com",
         "Alias": "TammiTst",
         "LastName": "Krobert",
@@ -38,7 +38,7 @@ export const userDataObj = [
         "TimeZoneSidKey": "America/New_York",
     },
     {
-        "Username": "tammiTestUser12@cmentor.com",
+        "Username": "SethTestUser12@cmentor.com",
         "Email": "tammi@cmentor.com",
         "Alias": "TammiTst",
         "LastName": "Krobert",
