@@ -1,7 +1,6 @@
 import { configVars } from "../../Config/configVars.mjs";
-import { createSfUser } from "./testEndpoints.mjs";
 import { getToken } from "./middlewares/authorization/authorization.mjs";
-import { getProfileId } from "./createNewUsers.mjs";
+import { getProfileId, createSfUser } from "./createNewUsers.mjs";
 import { userDataObj } from "../../Config/importUsers.mjs";
 
 
