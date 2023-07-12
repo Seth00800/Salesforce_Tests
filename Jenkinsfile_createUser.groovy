@@ -13,8 +13,10 @@ pipeline {
         stage('Run Create Users Script') {
             steps {
                 withCredentials([usernamePassword(credentialsId: '${params.Credentials}', usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-                    sh(script: 'npm install')
-                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
+                    sh(script: 'echo $myUserName')
+                    sh(script: 'echo $myPassword')
+//                    sh(script: 'npm install')
+//                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
                 }
             }
         }
