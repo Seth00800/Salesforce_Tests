@@ -30,7 +30,7 @@ export const mongoConnectGet = async(qsp, username, pwd, url, prefix, req, res, 
             useUnifiedTopology: true
         });
 
-        const coll = client.db('homework').collection(collection);
+        const coll = client.db('cloudmentordb').collection(collection);
         const cursor = coll.find(searchFilter);
         let result = await cursor.toArray();
         if(qsp.id && qsp.version){
