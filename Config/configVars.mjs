@@ -5,6 +5,11 @@ export const configVars = {
     "clientId": process.env["myUserName"],
     "clientSecret": process.env["myPassword"],
     "grantType": "client_credentials",
+    "mongoUrl": "@10.107.59.108:27017",
+    "mongoUrlPrefix": "mongodb://",
+    "mongoUname": process.env.MONGODB_LOCAL_USER,
+    "mongoPwd": process.env.MONGODB_LOCAL_PASSWORD,
+    "apiAuthKey": process.env.AUTH_KEY,
     "endPoints": {
         "getToken": "/services/oauth2/token?",
         "getAllUsers": "/services/data/v41.0/query?q=SELECT+UserName+FROM+User",
