@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: salesforceapi-secret
+data:
+  mongodb_username: YWRtaW51c2Vy
+  mongodb_password: cGFzc3dvcmQxMjM=
+  validation_authkey: TkhOU1JYTlBia3g1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salesforceapi
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+        - name: salesforceapi
+          image: salesforceapi:1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MONGODB_LOCAL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: salesforceapi-secret
+                  key: mongodb_username
+            - name: MONGODB_LOCAL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: salesforceapi-secret
+                  key: mongodb_password
+            - name: AUTH_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: salesforceapi-secret
+                  key: validation_authkey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salesforceapi-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+    - port: 8003
+      targetPort: 8003
+      nodePort: 30003
