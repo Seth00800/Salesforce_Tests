@@ -17,7 +17,6 @@ pipeline {
                             sh '''
                                 node ./Scripts/NodeJS/middleware/authorization/authorization.mjs
                             '''
-                            'node ./Scripts/NodeJS/middleware/authorization/authorization.mjs'
 
                 }
             }
