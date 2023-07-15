@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-
+                        sh(script: 'npm install')
                         def token = sh(script: '''
                                 node ./Scripts/NodeJS/middleware/authorization/authorization.mjs
                             ''', returnStdout: true).trim
