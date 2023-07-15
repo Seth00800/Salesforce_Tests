@@ -1,5 +1,7 @@
 import { configVars } from "../../../../Config/configVars.mjs";
 import fetch from "node-fetch";
+import fs  from "fs-extra"
+
 
 
 export const getToken = async() => {
@@ -14,12 +16,13 @@ export const getToken = async() => {
 
     const respJson = await rawResp.json()
 
-    const myAccessToken = "Bearer "+respJson.access_token
+    const myAccessToken = Buffer.from("Bearer "+respJson.access_token)
 
     // console.log(myAccessToken)
+    const myFile = fs.writeFileSync("./token", myAccessToken)
 
-    return myAccessToken
+    return myFile
 
 }
 
-// await getToken()
+await getToken()

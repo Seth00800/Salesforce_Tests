@@ -10,6 +10,14 @@ pipeline {
         )
     }
     stages {
+        stage('get SF Token') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
+                    env.token = sh(script: 'node ./Scripts/NodeJS/middleware/authorization/authorization.mjs')
+
+                }
+            }
+        }
         stage('Run Create Users Script') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
@@ -17,7 +25,7 @@ pipeline {
                     sh(script: 'echo $myPassword')
                     sh(script: 'printenv')
                     sh(script: 'npm install')
-                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
+//                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
                 }
             }
         }
