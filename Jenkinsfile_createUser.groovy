@@ -13,7 +13,7 @@ pipeline {
         stage('get SF Token') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-                    token = sh(script: 'node ./Scripts/NodeJS/middleware/authorization/authorization.mjs')
+                    def token = sh(script: 'node ./Scripts/NodeJS/middleware/authorization/authorization.mjs')
 
                 }
             }
