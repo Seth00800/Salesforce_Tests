@@ -10,6 +10,7 @@ export const configVars = {
     "grantType": "client_credentials",
     "mongoUrl": "@10.96.106.77:27017/",
     "mongoUrlPrefix": "mongodb://",
+    "accessToken": process.env['accessToken'],
     "mongoUname": process.env.MONGODB_LOCAL_USER,
     "mongoPwd": process.env.MONGODB_LOCAL_PASSWORD,
     "apiAuthKey": process.env.AUTH_KEY,

@@ -1,3 +1,5 @@
+
+def accessToken = ""
 pipeline {
     agent any
 
@@ -17,9 +19,9 @@ pipeline {
                         sh(script: 'npm install')
                         def token = sh(script: '''
                                 node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
-                            ''', returnStdout: true).trim
+                            ''', returnStdout: true).trim()
 
-                        def accessToken = token
+                        accessToken = token
 
                     }
                 }
