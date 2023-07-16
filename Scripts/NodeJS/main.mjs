@@ -1,5 +1,4 @@
 import { configVars } from "../../Config/configVars.mjs";
-import { getProfileId, createSfUser } from "./middlewares/salesforce/createNewUsers.mjs";
 import fetch from "node-fetch"
 
 
