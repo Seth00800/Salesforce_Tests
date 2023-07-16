@@ -46,10 +46,10 @@ pipeline {
 //                    ''', returnStdOut: true)
 //                }
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-                    sh(script: '''file="./token" && export token=$(cat "$file")''', returnStdout: true)
-                    sh(script: 'echo $myUserName')
-                    sh(script: 'echo $myPassword')
-                    sh(script: 'printenv')
+                    sh(script: '''file="./token" && export token=$(cat "$file") && printenv''')
+//                    sh(script: 'echo $myUserName')
+//                    sh(script: 'echo $myPassword')
+//                    sh(script: 'printenv')
 //                    sh(script: 'npm install')
 //                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
                 }
