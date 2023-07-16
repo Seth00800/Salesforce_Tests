@@ -12,6 +12,7 @@ pipeline {
     }
     stages {
         stage('Run Create Users Script') {
+            steps {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
                     sh(script: '''file="./token" && export token=$(cat "$file") && printenv''')
                     sh(script: 'printenv')
@@ -20,6 +21,7 @@ pipeline {
                 }
             }
         }
+    }
     post {
         // Clean after build
         always {
