@@ -27,7 +27,6 @@ pipeline {
 
                     }
                 }
-                print(token as java.lang.Object)
             }
         }
         stage('Run Create Users Script') {
@@ -35,6 +34,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
                     sh(script: 'echo $myUserName')
                     sh(script: 'echo $myPassword')
+                    env.accessToken = readFile('./token')
                     sh(script: 'printenv')
                     sh(script: 'npm install')
 //                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
