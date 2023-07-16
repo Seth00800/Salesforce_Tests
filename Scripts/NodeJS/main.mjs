@@ -8,7 +8,7 @@ const main = async() => {
         "Content-Type": "application/json",
         "Authorization": myToken
     }
-    const rawResp = await fetch('http://10.104.187.39:8003/data/api-management/apis/v1/homework?id=TammiLaw&version=1.0.0&coll=homework', {headers: headers})
+    const rawResp = await fetch('http://salesforceapi-entrypoint:8003/data/api-management/apis/v1/homework?id=TammiLaw&version=1.0.0&coll=homework', {headers: headers})
     const rawRespJson = await rawResp.json()
     console.log(rawRespJson)
 
