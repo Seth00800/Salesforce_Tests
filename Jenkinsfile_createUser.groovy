@@ -1,20 +1,11 @@
 
-
+token = ""
 pipeline {
     agent any
-    environment {
-
-//            script {
-                withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-//                    sh(script: 'npm install')
-                    token = sh(script: '''
-                                npm install
-                                node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
-                            ''', returnStdout: true).trim()
-
-                }
-//            }
-    }
+//    environment {
+//
+//        accessToken = token
+//    }
 
     parameters {
         string(name: 'sfOrgURL', defaultValue: '', description: 'Organization URL')
@@ -27,18 +18,16 @@ pipeline {
     stages {
         stage('get SF Token') {
             steps {
-//                script {
-//                    withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-//                        sh(script: 'npm install')
-//                        def token = sh(script: '''
-//                                node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
-//                            ''', returnStdout: true).trim()
-//
-//                        accessToken = token
-//
-//                    }
-//                }
-                echo env.token
+                script {
+                    withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
+                        sh(script: 'npm install')
+                        token = sh(script: '''
+                                node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
+                            ''', returnStdout: true).trim()
+
+                    }
+                }
+                print(token as java.lang.Object)
             }
         }
         stage('Run Create Users Script') {
