@@ -1,5 +1,5 @@
 
-token = ""
+env.token = ""
 pipeline {
     agent any
 //    environment {
@@ -24,7 +24,7 @@ pipeline {
                         env.token = sh(script: '''
                                 node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
                             ''', returnStdout: true).trim()
-
+                        sh(script: 'printenv')
                     }
                 }
             }
