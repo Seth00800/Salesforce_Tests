@@ -1,11 +1,14 @@
 import express, {json} from 'express'
 export const api = express.Router()
+
 import { ErrorHandler } from '../../NodeJS/middlewares/resphandlers/errors.mjs'
 import { appJsonHeader, authCheck } from "../../NodeJS/middlewares/contentchecks/headers/headerCheck.mjs";
 import { SuccessHandler } from "../../NodeJS/middlewares/resphandlers/success.mjs";
 import { healthStatus } from "../../NodeJS/middlewares/health/checkHealth.mjs";
 import { bodyData } from "../../NodeJS/middlewares/contentchecks/body/bodyCheck.mjs";
 import { qpCheck } from "../../NodeJS/middlewares/queryparams/getQueryParams.mjs";
+import { createUsers } from "../../NodeJS/middlewares/salesforce/createNewUsers.mjs";
+
 
 
 
@@ -20,13 +23,17 @@ api.use( bodyData )
 
 
 //GET Methods
+
+api.get('/homework', createUsers, (req, res, next) => {
+    console.log("EXITED HOMEWORK")
+    next()
+})
+
 api.get('/health', healthStatus, (req, res, next) => {
     next()
 })
 
-api.get('/homework', (req, res) => {
-    next()
-})
+
 
 api.use(SuccessHandler)
 

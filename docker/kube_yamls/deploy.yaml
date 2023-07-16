@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: salesforceapi
-          image: salesforceapi:1.0.0
+          image: salesforceapi:4.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: MONGODB_LOCAL_USER

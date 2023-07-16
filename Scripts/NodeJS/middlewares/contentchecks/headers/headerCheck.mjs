@@ -13,7 +13,6 @@ export const appJsonHeader = async(req, res, next) => {
             if (contentType === "application/json") {
                 console.log("Content Type Is Application/JSON")
                 next()
-                return true
             }
         }
     }catch (e) {
@@ -24,7 +23,7 @@ export const appJsonHeader = async(req, res, next) => {
     }
 }
 
-export const authCheck = async(req, res, next)=> {
+export const authCheck = async(config, req, res, next)=> {
     console.log(process.env.AUTH_KEY)
     let myKubeSecretKey;
     let myReqKey2;
