@@ -1,5 +1,5 @@
 
-def accessToken = "" as java.lang.Object
+
 pipeline {
     agent any
     environment {
@@ -7,12 +7,12 @@ pipeline {
             script {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
 //                    sh(script: 'npm install')
-                    def token = sh(script: '''
+                    token = sh(script: '''
                                 npm install
                                 node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
                             ''', returnStdout: true).trim()
 
-                    accessToken = token
+
 
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
 //
 //                    }
 //                }
-                echo accessToken
+                echo env.token
             }
         }
         stage('Run Create Users Script') {
