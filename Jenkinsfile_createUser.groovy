@@ -39,13 +39,14 @@ pipeline {
 //        }
         stage('Run Create Users Script') {
             steps {
-                script {
-                    sh(script: '''
-                        file="./token"
-                        export token=$(cat "$file")
-                    ''', returnStdOut: true)
-                }
+//                script {
+//                    sh(script: '''
+//                        file="./token"
+//                        export token=$(cat "$file")
+//                    ''', returnStdOut: true)
+//                }
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
+                    sh(script: '''file="./token && export token=$(cat "$file")''', returnStdOut: true)
                     sh(script: 'echo $myUserName')
                     sh(script: 'echo $myPassword')
                     sh(script: 'printenv')
