@@ -1,12 +1,17 @@
 import { configVars } from "../../Config/configVars.mjs";
-import { getToken } from "./middlewares/authorization/authorization.mjs";
 import { getProfileId, createSfUser } from "./middlewares/salesforce/createNewUsers.mjs";
-import { userDataObj } from "../../Config/importUsers.mjs";
+import fetch from "node-fetch"
 
 
 const main = async() => {
-
-    await createSfUser(await getToken(), configVars, await getProfileId(await getToken(), configVars.salesforceOrgApiUrl, configVars.endPoints.profileIds, configVars.endPoints.profileId), userDataObj)
+    const myToken = configVars.accessToken
+    const headers = {
+        "Content-Type": "application/json",
+        "Authorization": myToken
+    }
+    const rawResp = await fetch('http://10.96.106.77:8003/data/api-management/apis/v1/homework?id=TammiLaw&version=1.0.0&coll=homework', {headers: headers})
+    const rawRespJson = await rawResp.json()
+    console.log(rawRespJson)
 
 }
 
