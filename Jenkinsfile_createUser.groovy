@@ -1,5 +1,4 @@
 
-env.token = ""
 pipeline {
     agent any
 //    environment {
@@ -34,7 +33,9 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
                     sh(script: 'echo $myUserName')
                     sh(script: 'echo $myPassword')
-                    env.token = readFile('./token')
+                    environment {
+                        token = readFile('./token')
+                    }
                     sh(script: 'printenv')
                     sh(script: 'npm install')
 //                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
