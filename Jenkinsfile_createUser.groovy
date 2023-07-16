@@ -3,7 +3,7 @@
 pipeline {
     agent any
     environment {
-        steps {
+
             script {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
 //                    sh(script: 'npm install')
@@ -12,11 +12,8 @@ pipeline {
                                 node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
                             ''', returnStdout: true).trim()
 
-
-
                 }
             }
-        }
     }
 
     parameters {
