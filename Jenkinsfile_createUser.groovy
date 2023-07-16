@@ -1,7 +1,23 @@
 
-def accessToken = ""
+def accessToken = "" as java.lang.Object
 pipeline {
     agent any
+    environment {
+        steps {
+            script {
+                withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
+//                    sh(script: 'npm install')
+                    def token = sh(script: '''
+                                npm install
+                                node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
+                            ''', returnStdout: true).trim()
+
+                    accessToken = token
+
+                }
+            }
+        }
+    }
 
     parameters {
         string(name: 'sfOrgURL', defaultValue: '', description: 'Organization URL')
@@ -14,17 +30,18 @@ pipeline {
     stages {
         stage('get SF Token') {
             steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-                        sh(script: 'npm install')
-                        def token = sh(script: '''
-                                node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
-                            ''', returnStdout: true).trim()
-
-                        accessToken = token
-
-                    }
-                }
+//                script {
+//                    withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
+//                        sh(script: 'npm install')
+//                        def token = sh(script: '''
+//                                node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
+//                            ''', returnStdout: true).trim()
+//
+//                        accessToken = token
+//
+//                    }
+//                }
+                echo accessToken
             }
         }
         stage('Run Create Users Script') {
