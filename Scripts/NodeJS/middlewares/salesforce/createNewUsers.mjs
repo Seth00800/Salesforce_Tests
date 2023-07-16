@@ -1,7 +1,10 @@
 import fetch from "node-fetch";
+import {qpExtract} from "../queryparams/getQueryParams.mjs";
+import {mongoConnectGet} from "../databases/mongodb/mongodb.mjs";
+import {configVars} from "../../../../Config/configVars.mjs";
 
-export const getProfileId = async(token, sfURL, allProfilesEndpoint) => {
-    const myToken = token
+export const getProfileId = async(config, sfURL, allProfilesEndpoint) => {
+    const myToken = config.accessToken
     const myIdArr = []
 
     let headers = {
@@ -12,46 +15,61 @@ export const getProfileId = async(token, sfURL, allProfilesEndpoint) => {
     const rawResp1 = await fetch(sfURL+allProfilesEndpoint, {headers: headers})
     const rawResp1Json = await rawResp1.json()
     const myIdRecords = rawResp1Json.records
+    try {
+        for (let i = 0; i < myIdRecords.length; i++) {
 
-    for(let i=0; i<myIdRecords.length; i++){
+            let attributeURL = myIdRecords[i].attributes.url
+            const rawResp2 = await fetch(sfURL + attributeURL, {headers: headers})
+            const rawResp2Json = await rawResp2.json()
+            const name = rawResp2Json.Name
+            const id = rawResp2Json.Id
 
-        let attributeURL = myIdRecords[i].attributes.url
-        const rawResp2 = await fetch(sfURL+attributeURL, {headers: headers})
-        const rawResp2Json = await rawResp2.json()
-        const name = rawResp2Json.Name
-        const id = rawResp2Json.Id
+            if (name === "Partner" || name === "Attorney" || name === "Paralegal/CM" || name === "Financial" || name === "IT/Admin") {
 
-        if(name === "Partner" || name === "Attorney" || name === "Paralegal/CM" || name === "Financial" || name === "IT/Admin") {
+                let myProfIdObj = {
+                    "profileName": name,
+                    "profileId": id
+                }
 
-            let myProfIdObj = {
-                "profileName": name,
-                "profileId": id
+                myIdArr.push(myProfIdObj)
             }
 
-            myIdArr.push(myProfIdObj)
         }
+        console.log(myIdArr)
 
+        return myIdArr
+    }catch (e){
+            console.log(e)
     }
-    console.log(myIdArr)
 
-    return myIdArr
 
 }
 
-export const createSfUser = async(token, config, idArr, userDataObjArr) => {
+export const createUsers = async(token, config, idArr) => {
+
+    console.log("I AM IN CR")
     const updatedMergeArr = []
     const myToken = token
     const configVars = config
     const profileIds = idArr
     let mergedArr;
-    const newUsers = userDataObjArr
-    // const newProfileIds = {
-    //     "Partner": "00eDw000000R6XFIA0",
-    //     "Attorney": "00eDw000000R6XKIA0",
-    //     "Paralegal/CM": "00eDw000000R6XPIA0",
-    //     "Financial": "00eDw000000R6XUIA0",
-    //     "IT/Admin": "00eDw000000R6XZIA0"
+    const QP = await qpExtract(req, res, next)
+    console.log("MY QUERY PARAMETERS: "+ JSON.stringify(QP))
+    let newUsers = await mongoConnectGet(QP, configVars.mongoUname, configVars.mongoPwd, configVars.mongoUrl, configVars.mongoUrlPrefix)
+    console.log("BLAH BLAH BLAH")
+    console.log(newUsers)
+
+    newUsers = newUsers.userList
+
+    console.log(newUsers)
+
+    // res.statusCode = 200
+    // res.message = "Successful"
+    // res.success = {
+    //     "newUsers": newUsers
     // }
+    // console.log(res.success)
+    // next()
 
     let headers = {
         "Content-Type": "application/json",
@@ -138,18 +156,18 @@ export const createSfUser = async(token, config, idArr, userDataObjArr) => {
     }
 
 
-    try {
-        for (let i = 0; i < updatedMergeArr.length; i++) {
-            const rawResp = await fetch(configVars.salesforceOrgApiUrl + configVars.endPoints.createNewUser, {
-                method: 'POST',
-                body: JSON.stringify(updatedMergeArr[i]),
-                headers: headers
-            })
-            const rawRespJson = await rawResp.json()
-            console.log("This is HTTP Status For: "+ updatedMergeArr[i] +" "+rawRespJson.status)
-        }
-    }catch (e) {
-        console.log("In API Call To Create New User")
-        console.log(e)
-    }
+    // try {
+    //     for (let i = 0; i < updatedMergeArr.length; i++) {
+    //         const rawResp = await fetch(configVars.salesforceOrgApiUrl + configVars.endPoints.createNewUser, {
+    //             method: 'POST',
+    //             body: JSON.stringify(updatedMergeArr[i]),
+    //             headers: headers
+    //         })
+    //         const rawRespJson = await rawResp.json()
+    //         console.log("This is HTTP Status For: "+ updatedMergeArr[i] +" "+rawRespJson.status)
+    //     }
+    // }catch (e) {
+    //     console.log("In API Call To Create New User")
+    //     console.log(e)
+    // }
 }
