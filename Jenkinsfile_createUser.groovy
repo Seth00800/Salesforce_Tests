@@ -28,9 +28,12 @@ pipeline {
             }
         }
         stage("Create Access Token Environment Variable") {
-            steps{
-                environment {
-                    token = readFile('./token')
+            steps {
+                script {
+                    sh(script: '''
+                        file="./token"
+                        token=$(cat "$file")
+                    ''', returnStdOut: true).trim()
                 }
             }
         }
