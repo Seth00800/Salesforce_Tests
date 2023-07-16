@@ -20,11 +20,17 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
                         sh(script: 'npm install')
-                        env.token = sh(script: '''
+                        sh(script: '''
                                 node ./Scripts/NodeJS/middlewares/authorization/authorization.mjs
                             ''', returnStdout: true).trim()
-                        sh(script: 'printenv')
                     }
+                }
+            }
+        }
+        stage("Create Access Token Environment Variable") {
+            steps{
+                environment {
+                    token = readFile('./token')
                 }
             }
         }
@@ -33,11 +39,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
                     sh(script: 'echo $myUserName')
                     sh(script: 'echo $myPassword')
-                    environment {
-                        token = readFile('./token')
-                    }
                     sh(script: 'printenv')
-                    sh(script: 'npm install')
+//                    sh(script: 'npm install')
 //                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
                 }
             }
