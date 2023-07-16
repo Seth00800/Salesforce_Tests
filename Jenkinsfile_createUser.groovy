@@ -14,10 +14,10 @@ pipeline {
         stage('Run Create Users Script') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
-                    sh(script: '''file="./token" && export token=$(cat "$file") && printenv''')
-                    sh(script: 'printenv')
-                    sh(script: 'npm install')
-                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
+                    sh(script: '''file="./token" && export token=$(cat "$file") && npm install && printenv && node ./Scripts/NodeJS/main.mjs''')
+//                    sh(script: 'printenv')
+//                    sh(script: 'npm install')
+//                    sh(script: 'node ./Scripts/NodeJS/main.mjs')
                 }
             }
         }
