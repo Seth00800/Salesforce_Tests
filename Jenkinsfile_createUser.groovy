@@ -4,7 +4,7 @@ pipeline {
     agent any
     environment {
 
-            script {
+//            script {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
 //                    sh(script: 'npm install')
                     token = sh(script: '''
@@ -13,7 +13,7 @@ pipeline {
                             ''', returnStdout: true).trim()
 
                 }
-            }
+//            }
     }
 
     parameters {
