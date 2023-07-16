@@ -24,7 +24,7 @@ api.use( bodyData )
 
 //GET Methods
 
-api.get('/homework', createUsers, (req, res, next) => {
+api.get('/createusers', createUsers, (req, res, next) => {
     console.log("EXITED HOMEWORK")
     next()
 })

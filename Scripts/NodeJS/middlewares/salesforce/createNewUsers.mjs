@@ -6,8 +6,9 @@ import {configVars} from "../../../../Config/configVars.mjs";
 const getProfileId = async() => {
     console.log("I AM IN getProfileId")
     const myToken = configVars.accessToken
+    console.log(myToken)
     const myIdArr = []
-
+    console.log(configVars.salesforceOrgApiUrl+configVars.endPoints.profileIds)
     let headers = {
         "Authorization": myToken,
         "Content-Type": "application/json"
