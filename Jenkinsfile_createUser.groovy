@@ -27,7 +27,17 @@ pipeline {
                 }
             }
         }
-        stage("Create Access Token Environment Variable") {
+//        stage("Create Access Token Environment Variable") {
+//            steps {
+//                script {
+//                    sh(script: '''
+//                        file="./token"
+//                        export token=$(cat "$file")
+//                    ''', returnStdOut: true)
+//                }
+//            }
+//        }
+        stage('Run Create Users Script') {
             steps {
                 script {
                     sh(script: '''
@@ -35,10 +45,6 @@ pipeline {
                         export token=$(cat "$file")
                     ''', returnStdOut: true)
                 }
-            }
-        }
-        stage('Run Create Users Script') {
-            steps {
                 withCredentials([usernamePassword(credentialsId: "${params.Credentials}", usernameVariable: 'myUserName', passwordVariable: 'myPassword')]) {
                     sh(script: 'echo $myUserName')
                     sh(script: 'echo $myPassword')
