@@ -33,7 +33,6 @@ pipeline {
                     sh(script: '''
                         file="./token"
                         export token=$(cat "$file")
-                        printenv
                     ''', returnStdOut: true)
                 }
             }
