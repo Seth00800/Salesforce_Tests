@@ -15,7 +15,7 @@ const main = async() => {
         "Authorization": token
     }
 
-    const url = sfURL+'/data/api-management/apis/v1/createusers?id='+id+'&version=1.0.0&coll=homework';
+    const url = sfURL+'/data/api-management/apis/v1/createUsers?id='+id+'&version=1.0.0&coll=homework';
     const data = {
         "salesforceOrgApiUrl": sfURL,
         "accessToken": token
