@@ -190,12 +190,12 @@ export const createUsers = async(req, res, next) => {
                 headers: headers
             })
             const rawRespJson = await rawResp.json()
-            console.log("This is HTTP Status For: "+ JSON.stringify(updatedMergeArr[i].username) +" HTTP STATUS: "+rawResp.status)
+            console.log("This is HTTP Status For: "+ JSON.stringify(updatedMergeArr[i].Username) +" HTTP STATUS: "+rawResp.status)
         }
         res.statusCode = 200
         res.message = "Successfully Updated Salesforce User Listing With New User Array"
         res.success = {
-            "updatedMergedArray": JSON.stringify(updatedMergeArr)
+            "updatedMergedArray": JSON.stringify(updatedMergeArr, null, 2)
         }
         console.log(res.success)
         next()
