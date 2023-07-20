@@ -6,7 +6,7 @@ const main = async() => {
 
     console.log("I AM IN FIRST MAIN")
 
-    const token = process.env['myToken']
+    const token = process.env['accessToken']
     const sfURL = process.env['sfOrgURL']
     const id = process.env['Credentials']
 
