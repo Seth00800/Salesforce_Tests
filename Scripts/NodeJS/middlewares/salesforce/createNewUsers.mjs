@@ -21,11 +21,11 @@ export const getProfileIds = async(req, res, next) => {
 
 
     const rawResp1 = await fetch(myOrgUrl+configVars.endPoints.profileIds, reqOptions)
-    // console.log(rawResp1)
+    console.log(rawResp1)
     const rawResp1Json = await rawResp1.json()
-    // console.log(rawResp1Json)
+    console.log(rawResp1Json)
     const myIdRecords = rawResp1Json.records
-    // console.log(myIdRecords)
+    console.log(myIdRecords)
     const reqUrl = req.originalUrl
     const myEndpoint = reqUrl.substring(reqUrl.lastIndexOf("/") + 1, reqUrl.lastIndexOf("?"))
     try {
