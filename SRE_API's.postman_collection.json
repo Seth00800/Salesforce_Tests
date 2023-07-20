@@ -1,0 +1,1207 @@
+{
+	"info": {
+		"_postman_id": "b446d840-5ca6-45cb-994a-7dfea48c8b39",
+		"name": "SRE_API's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20679214"
+	},
+	"item": [
+		{
+			"name": "validationAPI",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/validation",
+							"item": [
+								{
+									"name": "Port:  30001",
+									"item": [
+										{
+											"name": "POST:  Validate Schema",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "TkhOU1JYTlBia3g1",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/atom+xml",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "correlation-id",
+														"value": "123456789",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": \"false\",\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:30001/data/api-management/api-platform/v1/api-lifecycle/configurations/validation?version=1.0.0&id=jsonConfig&coll=schemas",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "30001",
+													"path": [
+														"data",
+														"api-management",
+														"api-platform",
+														"v1",
+														"api-lifecycle",
+														"configurations",
+														"validation"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "1.0.0"
+														},
+														{
+															"key": "id",
+															"value": "jsonConfig"
+														},
+														{
+															"key": "coll",
+															"value": "schemas"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "POST:  Create JSON Object In Collection",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/atom+xml",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "correlation-id",
+														"value": "123456789",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": false,\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:30001/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=health",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "30001",
+													"path": [
+														"data",
+														"api-management",
+														"api-platform",
+														"v1",
+														"api-lifecycle",
+														"configurations",
+														"schemas"
+													],
+													"query": [
+														{
+															"key": "coll",
+															"value": "health"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Port:  8003",
+									"item": [
+										{
+											"name": "POST:  Validate Schema",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/atom+xml",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "correlation-id",
+														"value": "123456789",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": \"false\",\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8003/data/api-management/api-platform/v1/api-lifecycle/configurations/validation?version=1.0.0&id=json-config&coll=schemas",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8003",
+													"path": [
+														"data",
+														"api-management",
+														"api-platform",
+														"v1",
+														"api-lifecycle",
+														"configurations",
+														"validation"
+													],
+													"query": [
+														{
+															"key": "version",
+															"value": "1.0.0"
+														},
+														{
+															"key": "id",
+															"value": "json-config"
+														},
+														{
+															"key": "coll",
+															"value": "schemas"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "POST:  Create JSON Object In Collection",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/atom+xml",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "correlation-id",
+														"value": "123456789",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n\"id\": \"myId\",\r\n\"version\": \"myVersion\",\r\n\"type\": \"myType\",\r\n\"object\": \"myObj\",\r\n\"dateCreated\": \"myDateCreated\",\r\n\"dateModified\": \"myDateModified\",\r\n\"schema\": {\r\n\t\"Blah\": \"Blah\"\r\n}\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8003/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=health",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8003",
+													"path": [
+														"data",
+														"api-management",
+														"api-platform",
+														"v1",
+														"api-lifecycle",
+														"configurations",
+														"schemas"
+													],
+													"query": [
+														{
+															"key": "coll",
+															"value": "health"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "AWS",
+									"item": [
+										{
+											"name": "POST:  Validate Schema",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "TkhOU1JYTlBia3g1",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/atom+xml",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "correlation-id",
+														"value": "123456789",
+														"type": "text"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": \"false\",\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://dev-api6.msapigw.dev.npd.bfsaws.net/data/api-management/api-platform/v1/api-lifecycle/configurations/validation?id=jsonConfig&version=1.0.0&coll=schemas",
+													"protocol": "https",
+													"host": [
+														"dev-api6",
+														"msapigw",
+														"dev",
+														"npd",
+														"bfsaws",
+														"net"
+													],
+													"path": [
+														"data",
+														"api-management",
+														"api-platform",
+														"v1",
+														"api-lifecycle",
+														"configurations",
+														"validation"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "jsonConfig"
+														},
+														{
+															"key": "version",
+															"value": "1.0.0"
+														},
+														{
+															"key": "coll",
+															"value": "schemas"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "POST:  Create JSON Object In Collection",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "TkhOU1JYTlBia3g1",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/atom+xml",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "correlation-id",
+														"value": "123456789",
+														"type": "text",
+														"disabled": true
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": false,\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://dev-api6.msapigw.dev.npd.bfsaws.net/data/api-management/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=health",
+													"protocol": "https",
+													"host": [
+														"dev-api6",
+														"msapigw",
+														"dev",
+														"npd",
+														"bfsaws",
+														"net"
+													],
+													"path": [
+														"data",
+														"api-management",
+														"data",
+														"api-management",
+														"api-platform",
+														"v1",
+														"api-lifecycle",
+														"configurations",
+														"schemas"
+													],
+													"query": [
+														{
+															"key": "coll",
+															"value": "health"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Port: 30001",
+							"item": [
+								{
+									"name": "GET:  All Schemas By Collection",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/atom+xml",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456789",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:30001/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=schemas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "30001",
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"schemas"
+											],
+											"query": [
+												{
+													"key": "coll",
+													"value": "schemas"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GET:  Health Check Copy",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										},
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/atom+xml",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456789",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": \"false\",\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:30001/data/api-management/api-platform/v1/api-lifecycle/configurations/health?id=health&version=2.0.0&coll=health",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "30001",
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"health"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "health"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "coll",
+													"value": "health"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Port:  8003",
+							"item": [
+								{
+									"name": "GET:  All Schemas By Collection",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/atom+xml",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456789",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8003/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=schemas",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8003",
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"schemas"
+											],
+											"query": [
+												{
+													"key": "coll",
+													"value": "schemas"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GET:  Health Check",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										},
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/atom+xml",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456789",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "NHNSRXNPbkx5",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": \"false\",\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8003/data/api-management/api-platform/v1/api-lifecycle/configurations/health?id=health&version=2.0.0&coll=health",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8003",
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"health"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "health"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "coll",
+													"value": "health"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "AWS",
+							"item": [
+								{
+									"name": "GET:  Health Check",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "TkhOU1JYTlBia3g1",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dev-api6.msapigw.dev.npd.bfsaws.net/data/api-management/api-platform/v1/api-lifecycle/configurations/health?id=health&version=2.0.0&coll=health",
+											"protocol": "https",
+											"host": [
+												"dev-api6",
+												"msapigw",
+												"dev",
+												"npd",
+												"bfsaws",
+												"net"
+											],
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"health"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "health"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "coll",
+													"value": "health"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GET:  All Schemas By Collection",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "TkhOU1JYTlBia3g1",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/atom+xml",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456789",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dev-api6.msapigw.dev.npd.bfsaws.net/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=schemas",
+											"protocol": "https",
+											"host": [
+												"dev-api6",
+												"msapigw",
+												"dev",
+												"npd",
+												"bfsaws",
+												"net"
+											],
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"schemas"
+											],
+											"query": [
+												{
+													"key": "coll",
+													"value": "schemas"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"item": []
+				},
+				{
+					"name": "DELETE",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "salesforceAPI",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Port: 30004",
+							"item": [
+								{
+									"name": "POST:  Get ProfileIds",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "TkhOU1JYTlBia3g1",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n    \"salesforceOrgApiUrl\": \"https://cmentor--tammisb.sandbox.my.salesforce.com\",\r\n    \"accessToken\": \"Bearer 00DDw000005FClx!AREAQGX1iYijCKY4OTHzoSbdVR7oEgc5STpLfC5RtX1fehYkYciIqdLpDwe3fcblyugRrx8Juth6zFu9Em7oCNAdzdixDm4Q\"\r\n\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:30004/data/api-management/apis/v1/getProfileIds?coll=homework&id=homework&version=1.0.0",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "30004",
+											"path": [
+												"data",
+												"api-management",
+												"apis",
+												"v1",
+												"getProfileIds"
+											],
+											"query": [
+												{
+													"key": "coll",
+													"value": "homework"
+												},
+												{
+													"key": "id",
+													"value": "homework"
+												},
+												{
+													"key": "version",
+													"value": "1.0.0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST:  Create Users",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "TkhOU1JYTlBia3g1",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n    \"salesforceOrgApiUrl\": \"https://cmentor--tammisb.sandbox.my.salesforce.com\",\r\n    \"accessToken\": \"Bearer 00DDw000005FClx!AREAQGX1iYijCKY4OTHzoSbdVR7oEgc5STpLfC5RtX1fehYkYciIqdLpDwe3fcblyugRrx8Juth6zFu9Em7oCNAdzdixDm4Q\"\r\n\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:30004/data/api-management/apis/v1/createUsers?coll=homework&id=TammiLaw&version=1.0.0",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "30004",
+											"path": [
+												"data",
+												"api-management",
+												"apis",
+												"v1",
+												"createUsers"
+											],
+											"query": [
+												{
+													"key": "coll",
+													"value": "homework"
+												},
+												{
+													"key": "id",
+													"value": "TammiLaw"
+												},
+												{
+													"key": "version",
+													"value": "1.0.0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "POST:  Upload Homework To Collection",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/atom+xml",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "correlation-id",
+												"value": "123456789",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"meta\": {\r\n      \"isDelete\": false,\r\n      \"strictValidation\": \"false\",\r\n      \"specFolder\": \".\",\r\n      \"deployTarget\": \"rtf\",\r\n      \"providerName\": \"\",\r\n      \"instanceId\": \"\",\r\n      \"shareWithTeam\": \"\",\r\n      \"taxonomyPath\": \"\",\r\n      \"apiLabel\": \"\"\r\n    },\r\n    \"artifactVersion\": \"1.0.4\",\r\n    \"artifactId\": \"SethSamplePetStore\",\r\n    \"displayName\": \"Seth Sample PetStore\",\r\n    \"businessCapabilityUri\": \"brsps/myCoolURI\",\r\n    \"environments\": {\r\n      \"dev\": {\r\n        \"specFile\": \"SethSamplePetStore-3.0.0-oas.yaml\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productName\": \"petstore-dev\",\r\n        \"productVersion\": \"v3\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uat\": {\r\n        \"specFile\": \"SethSamplePetStore-4.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v2\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"uati\": {\r\n        \"specFile\": \"SethSamplePetStore-5.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"5.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prod\": {\r\n        \"specFile\": \"SethSamplePetStore-6.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"3.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      },\r\n      \"prodi\": {\r\n        \"specFile\": \"SethSamplePetStore-7.0.0-oas.json\",\r\n        \"apiConsumerCategory\": \"External Public\",\r\n        \"apiVersion\": \"7.0.0\",\r\n        \"assetVersion\": \"3.0.0\",\r\n        \"backendHost\": \"dev.mycoolapi.com\",\r\n        \"backendBasePath\": \"/ics-configurations/ics/api-central/v1/\",\r\n        \"productVersion\": \"v1\",\r\n        \"policies\": {},\r\n        \"alerts\": {},\r\n        \"slaTiers\": {}\r\n      }\r\n    }\r\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:30001/data/api-management/api-platform/v1/api-lifecycle/configurations/schemas?coll=health",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "30001",
+											"path": [
+												"data",
+												"api-management",
+												"api-platform",
+												"v1",
+												"api-lifecycle",
+												"configurations",
+												"schemas"
+											],
+											"query": [
+												{
+													"key": "coll",
+													"value": "health"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Port: 8004",
+							"item": []
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Port: 30004",
+							"item": [
+								{
+									"name": "GET:  Health Status",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "TkhOU1JYTlBia3g1",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:30003/data/api-management/apis/v1/health?id=health&version=2.0.0&coll=health",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "30003",
+											"path": [
+												"data",
+												"api-management",
+												"apis",
+												"v1",
+												"health"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "health"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "coll",
+													"value": "health"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Port: 8004",
+							"item": []
+						}
+					]
+				},
+				{
+					"name": "OAuth",
+					"item": [
+						{
+							"name": "POST:  Get Token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://cmentor--tammisb.sandbox.my.salesforce.com/services/oauth2/token?client_id=3MVG9Bd71Ohl9lnNGeHbtkeyaCsip.De7E56hhRM8KAQSgknjhS6fRGlMceP3Vy4QBJjNG1DkLMYcVyesmm4_&client_secret=B5C3ED10868E403B1445EC8152E6D4DF944E38BD4AF74DA58318BB57F5F42DE9&grant_type=client_credentials",
+									"protocol": "https",
+									"host": [
+										"cmentor--tammisb",
+										"sandbox",
+										"my",
+										"salesforce",
+										"com"
+									],
+									"path": [
+										"services",
+										"oauth2",
+										"token"
+									],
+									"query": [
+										{
+											"key": "client_id",
+											"value": "3MVG9Bd71Ohl9lnNGeHbtkeyaCsip.De7E56hhRM8KAQSgknjhS6fRGlMceP3Vy4QBJjNG1DkLMYcVyesmm4_"
+										},
+										{
+											"key": "client_secret",
+											"value": "B5C3ED10868E403B1445EC8152E6D4DF944E38BD4AF74DA58318BB57F5F42DE9"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
