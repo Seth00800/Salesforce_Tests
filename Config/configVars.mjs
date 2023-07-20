@@ -19,7 +19,7 @@ export const configVars = {
     // "mongoPwd": "password123",
     "apiAuthKey": process.env.AUTH_KEY,
     // "apiAuthKey": "TkhOU1JYTlBia3g1",
-    "sfDomain":"http://10.1.0.141:8004",
+    "sfDomain":"http://localhost:30004",
     "endPoints": {
         "getToken": "/services/oauth2/token?",
         "getAllUsers": "/services/data/v41.0/query?q=SELECT+UserName+FROM+User",
