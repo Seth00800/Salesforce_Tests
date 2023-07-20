@@ -10,8 +10,6 @@ parameters {
 pipeline {
     agent any
 
-    tools {nodejs "node"}
-
     stages {
         stage('Run Create Users Script') {
             steps {
