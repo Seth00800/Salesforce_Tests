@@ -17,8 +17,8 @@ export const configVars = {
     "mongoPwd": process.env.MONGODB_LOCAL_PASSWORD,
     // "mongoUname": "adminuser",
     // "mongoPwd": "password123",
-    "apiAuthKey": process.env.AUTH_KEY,
-    // "apiAuthKey": "TkhOU1JYTlBia3g1",
+    // "apiAuthKey": process.env.AUTH_KEY,
+    "apiAuthKey": "TkhOU1JYTlBia3g1",
     "sfDomain":"http://localhost:30004",
     "endPoints": {
         "getToken": "/services/oauth2/token?",

@@ -6,13 +6,13 @@ const main = async() => {
 
     console.log("I AM IN FIRST MAIN")
 
-    const token = process.env['accessToken']
+    const token = process.env['myToken']
     const sfURL = process.env['sfOrgURL']
     const id = process.env['Credentials']
 
     const headers = {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": "Bearer "+configVars.apiAuthKey
     }
 
     const url = configVars.sfDomain+'/data/api-management/apis/v1/createUsers?id='+id+'&version=1.0.0&coll=homework';
