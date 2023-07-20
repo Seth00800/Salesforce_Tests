@@ -2,9 +2,7 @@ import fetch from "node-fetch";
 import {qpExtract} from "../queryparams/getQueryParams.mjs";
 import {mongoConnectGet} from "../databases/mongodb/mongodb.mjs";
 import {configVars} from "../../../../Config/configVars.mjs";
-import { HttpsProxyAgent } from 'https-proxy-agent';
-import {api} from "../../../express/routes/routes.mjs";
-const newProxy = new HttpsProxyAgent('http://dickersons:Setdic575605@10.98.21.24:8080')
+
 
 export const getProfileIds = async(req, res, next) => {
     console.log("I AM IN getProfileId")
@@ -19,7 +17,7 @@ export const getProfileIds = async(req, res, next) => {
         "Content-Type": "application/json"
     }
 
-    const reqOptions = {method: 'GET',headers: headers, agent: newProxy}
+    const reqOptions = {method: 'GET',headers: headers}
 
 
     const rawResp1 = await fetch(myOrgUrl+configVars.endPoints.profileIds, reqOptions)
