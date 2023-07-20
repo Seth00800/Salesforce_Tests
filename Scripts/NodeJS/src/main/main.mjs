@@ -31,6 +31,6 @@ app.use('/data/api-management/apis/v1', api, (error, req, res) => {
 
 })
 
-app.listen(8003, function() {
-    console.log("Server Started On Port 8003")
+app.listen(8004, function() {
+    console.log("Server Started On Port 8004")
 })

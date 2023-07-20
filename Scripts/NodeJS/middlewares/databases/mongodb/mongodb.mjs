@@ -61,8 +61,8 @@ export const mongoConnectPost = async(qsp, username, pwd, url, prefix, req, res,
             useUnifiedTopology: true
         });
 
-        const coll = client.db('msapigw').collection(collection);
-        let newDocument = qsp.schema
+        const coll = client.db('cloudmentordb').collection(collection);
+        let newDocument = qsp.homework
         newDocument.date = new Date();
         let result = await coll.insertOne(newDocument);
         console.log(result)
@@ -72,6 +72,41 @@ export const mongoConnectPost = async(qsp, username, pwd, url, prefix, req, res,
     }catch (e){
         console.log("IM IN MONGOCONNECTPOST CATCH")
         throw new Error()
-        next(e)
     }
 }
+
+// export const mongoConnectPost = async(qsp, username, pwd, url, prefix, req, res, next) => {
+//
+//     let collection;
+//     if(qsp.coll){
+//         collection = qsp.coll
+//     }
+//
+//     // try {
+//         console.log("IM IN MONGOCONNECTPOST TRY")
+//
+//
+//         const client = await MongoClient.connect(prefix + username + ":" + pwd + url, {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true
+//         });
+//
+//         const coll = client.db('cloudmentordb').collection(collection);
+//
+//         let newDocument = qsp.homework
+//
+//         newDocument.date = new Date();
+//
+//         let result = await coll.insertOne(newDocument);
+//
+//         console.log(result)
+//
+//         await client.close();
+//         return result
+//
+//     // }catch (e){
+//     //     console.log("IM IN MONGOCONNECTPOST CATCH")
+//     //     throw new Error()
+//     //     next(e)
+//     // }
+// }

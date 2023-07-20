@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: salesforceapi-secret
+  namespace: expressapis
 data:
   mongodb_username: YWRtaW51c2Vy
   mongodb_password: cGFzc3dvcmQxMjM=
@@ -11,7 +12,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: salesforceapi
-  namespace: default
+  namespace: expressapis
 spec:
   replicas: 1
   selector:
@@ -24,7 +25,7 @@ spec:
     spec:
       containers:
         - name: salesforceapi
-          image: salesforceapi:4.0.0
+          image: salesforceapi:1.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: MONGODB_LOCAL_USER
@@ -47,12 +48,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: salesforceapi-entrypoint
-  namespace: default
+  namespace: expressapis
 spec:
   type: NodePort
   selector:
     bb: web
   ports:
-    - port: 8003
-      targetPort: 8003
-      nodePort: 30003
+    - port: 8004
+      targetPort: 8004
+      nodePort: 30004

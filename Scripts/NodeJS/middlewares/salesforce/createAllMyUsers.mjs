@@ -1,95 +1,37 @@
-import fetch from "node-fetch";
 import {qpExtract} from "../queryparams/getQueryParams.mjs";
 import {mongoConnectGet} from "../databases/mongodb/mongodb.mjs";
-import {configVars} from "../../../../Config/configVars.mjs";
-import { HttpsProxyAgent } from 'https-proxy-agent';
-import {api} from "../../../express/routes/routes.mjs";
-const newProxy = new HttpsProxyAgent('http://dickersons:Setdic575605@10.98.21.24:8080')
-
-export const getProfileIds = async(req, res, next) => {
-    console.log("I AM IN getProfileId")
-    const myToken = req.body.accessToken
-    // console.log(myToken)
-    const myOrgUrl = req.body.salesforceOrgApiUrl
-    const myIdArr = []
-    // console.log(myOrgUrl+configVars.endPoints.profileIds)
-
-    let headers = {
-        "Authorization": myToken,
-        "Content-Type": "application/json"
-    }
-
-    const reqOptions = {method: 'GET',headers: headers, agent: newProxy}
 
 
-    const rawResp1 = await fetch(myOrgUrl+configVars.endPoints.profileIds, reqOptions)
-    // console.log(rawResp1)
-    const rawResp1Json = await rawResp1.json()
-    // console.log(rawResp1Json)
-    const myIdRecords = rawResp1Json.records
-    // console.log(myIdRecords)
-    const reqUrl = req.originalUrl
-    const myEndpoint = reqUrl.substring(reqUrl.lastIndexOf("/") + 1, reqUrl.lastIndexOf("?"))
-    try {
-        for (let i = 0; i < myIdRecords.length; i++) {
+export const createAllMyUsers = async(req, res, next, token, config, idArr) => {
 
-            let attributeURL = myIdRecords[i].attributes.url
-            const rawResp2 = await fetch(myOrgUrl + attributeURL, reqOptions)
-            const rawResp2Json = await rawResp2.json()
-            const name = rawResp2Json.Name
-            const id = rawResp2Json.Id
-
-            if (name === "Partner" || name === "Attorney" || name === "Paralegal/CM" || name === "Financial" || name === "IT/Admin") {
-
-                let myProfIdObj = {
-                    "profileName": name,
-                    "profileId": id
-                }
-
-                myIdArr.push(myProfIdObj)
-            }
-        }
-        if(myEndpoint === 'getProfileIds') {
-            console.log("IN MY IF")
-            res.statusCode = 200
-            res.message = "Successfully Pulled All Needed Profile Ids"
-            res.success = {
-                "profileIds": myIdArr
-            }
-            console.log(res.success)
-            next()
-        }else{
-            console.log("IN MY ELSE")
-            return myIdArr
-        }
-    }catch (e){
-            console.log(e)
-    }
-}
-
-export const createUsers = async(req, res, next) => {
-    console.log("I AM IN createUsers")
-    const profileIds = await getProfileIds(req, res, next)
-    console.log(profileIds)
+    console.log("I AM IN CR")
     const updatedMergeArr = []
-    const myToken = req.body.accessToken
-    const sfUrl = req.body.salesforceOrgApiUrl
+    const myToken = token
+    const configVars = config
+    const profileIds = idArr
     let mergedArr;
     const QP = await qpExtract(req, res, next)
     console.log("MY QUERY PARAMETERS: "+ JSON.stringify(QP))
     let newUsers = await mongoConnectGet(QP, configVars.mongoUname, configVars.mongoPwd, configVars.mongoUrl, configVars.mongoUrlPrefix)
-    console.log(JSON.stringify(newUsers, null, 2))
+    console.log("BLAH BLAH BLAH")
+    console.log(newUsers)
 
-    newUsers = newUsers.homework.userList
+    newUsers = newUsers.userList
 
     console.log(newUsers)
 
+    // res.statusCode = 200
+    // res.message = "Successful"
+    // res.success = {
+    //     "newUsers": newUsers
+    // }
+    // console.log(res.success)
+    // next()
+
     let headers = {
-        "Authorization": myToken,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": myToken
     }
-    //
-    // const reqOptions = {method: 'GET',headers: headers, agent: newProxy}
 
     try {
         for (let i = 0; i < newUsers.length; i++) {
@@ -165,49 +107,24 @@ export const createUsers = async(req, res, next) => {
                 }
             }
         }
-        res.statusCode = 200
-        res.message = "Successfully Updated Salesforce User Listing With New User Array"
-        res.success = {
-            "updatedMergedArray": updatedMergeArr
-        }
-        console.log(res.success)
-        next()
     }catch (e){
-        console.log("In Building Array Create New User Error")
+        console.log("In Building Array Create New User")
         console.log(e)
-        e.statusCode = 500
-        e.message = {
-            "Message": "Could not build user array list to import"
-        }
-        e.name = "Failed To Build User Array List"
-        next(e)
     }
 
 
-    try {
-        for (let i = 0; i < updatedMergeArr.length; i++) {
-            const rawResp = await fetch(sfUrl + configVars.endPoints.createNewUser, {
-                method: 'POST',
-                body: JSON.stringify(updatedMergeArr[i]),
-                headers: headers
-            })
-            const rawRespJson = await rawResp.json()
-            console.log("This is HTTP Status For: "+ JSON.stringify(updatedMergeArr[i].username) +" HTTP STATUS: "+rawResp.status)
-        }
-        res.statusCode = 200
-        res.message = "Successfully Updated Salesforce User Listing With New User Array"
-        res.success = {
-            "updatedMergedArray": JSON.stringify(updatedMergeArr)
-        }
-        console.log(res.success)
-        next()
-    }catch (e) {
-        console.log(e)
-        e.statusCode = 500
-        e.message = {
-            "Message": "Failed To Upload Users To Salesforce User Directory"
-        }
-        e.name = "Failed To Upload Users To Salesforce User Directory"
-        next(e)
-    }
+    // try {
+    //     for (let i = 0; i < updatedMergeArr.length; i++) {
+    //         const rawResp = await fetch(configVars.salesforceOrgApiUrl + configVars.endPoints.createNewUser, {
+    //             method: 'POST',
+    //             body: JSON.stringify(updatedMergeArr[i]),
+    //             headers: headers
+    //         })
+    //         const rawRespJson = await rawResp.json()
+    //         console.log("This is HTTP Status For: "+ updatedMergeArr[i] +" "+rawRespJson.status)
+    //     }
+    // }catch (e) {
+    //     console.log("In API Call To Create New User")
+    //     console.log(e)
+    // }
 }

@@ -15,6 +15,7 @@
     "body-parser": "^1.20.2",
     "child-process": "^1.0.2",
     "express": "^4.18.2",
+    "fetch-with-proxy": "^3.0.1",
     "fs-extra": "^11.1.1",
     "node-fetch": "^3.3.1",
     "npx": "^10.2.2"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "aws-sdk": "latest",
     "express-transaction-id": "^0.4.0",
+    "https-proxy-agent": "^7.0.1",
     "jsonschema": "^1.4.1",
     "mongodb": "^5.5.0",
     "winston": "^3.8.2"

@@ -12,6 +12,12 @@ export const getToken = async() => {
     let grantType = configVars.grantType
     let endPoint = configVars.endPoints.getToken
 
+    console.log(clientId)
+    console.log(clientSecret)
+    console.log(salesforceOrgApiUrl)
+    console.log(grantType)
+    console.log(endPoint)
+
     const rawResp = await fetch(salesforceOrgApiUrl+endPoint+"client_id="+clientId+"&client_secret="+clientSecret+"&grant_type="+grantType)
 
     const respJson = await rawResp.json()
@@ -25,4 +31,4 @@ export const getToken = async() => {
 
 }
 
-await getToken()
+// await getToken()

@@ -21,7 +21,7 @@ pipeline {
                         env.myToken = readFile('./token')
                         env.sfOrgURL = params.sfOrgURL
                         env.id = params.Credentials
-                        sh(script: 'printenv && node ./Scripts/NodeJS/createUsers_fetch.mjs $myToken $sfOrgURL $id')
+                        sh(script: 'printenv && node ./Scripts/NodeJS/postHomework_fetch.mjs $myToken $sfOrgURL $id')
                     }
                 }
             }
