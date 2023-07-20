@@ -8,7 +8,7 @@ export const configVars = {
     "clientId": process.env["myUserName"],
     "clientSecret": process.env["myPassword"],
     "grantType": "client_credentials",
-    "mongoUrl": "@10.106.69.103:27017/",
+    "mongoUrl": "@10.96.106.77:27017/",
     // "mongoUrl": "@localhost:32000/",
     "mongoUrlPrefix": "mongodb://",
     // "accessToken": "Bearer 00DDw000005FClx!AREAQE3vRq9vkFm0CqvGVyBy.UHGtOUSWQLdpfFzl_C9b7jDZ4YC21PvdpR8z9hAQDHCn7f7h5dp3avLUcqYAw.YQwAL8bZZ",
@@ -34,6 +34,4 @@ export const configVars = {
         "LocaleSidKey": "en_US"
     },
     "userListArray": ["sethtestuser32@cmentor.com", "sethtestuser35@cmentor.com", "sethtestuser36@cmentor.com"]
-
-
 }

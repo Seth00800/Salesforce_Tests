@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: salesforceapi-secret
-  namespace: expressapis
+  namespace: default
 data:
   mongodb_username: YWRtaW51c2Vy
   mongodb_password: cGFzc3dvcmQxMjM=
@@ -12,7 +12,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: salesforceapi
-  namespace: expressapis
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -48,7 +48,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: salesforceapi-entrypoint
-  namespace: expressapis
+  namespace: default
 spec:
   type: NodePort
   selector:
