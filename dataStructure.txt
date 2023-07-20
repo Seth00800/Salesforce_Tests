@@ -1,0 +1,160 @@
+{
+  "_id": {
+    "$oid": "64b6ffe64aca418c3e338ed4"
+  },
+  "id": "SethLaw",
+  "version": "1.0.0",
+  "type": "object",
+  "object": "homework",
+  "homework": {
+    "userList": [
+      {
+        "Username": "SethTestUser40@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Partner",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser41@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Attorney",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser42@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Paralegal/CM",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser43@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser44@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "IT/Admin",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser45@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser46@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser47@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser48@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser49@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser50@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser51@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser52@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser53@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser54@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      },
+      {
+        "Username": "SethTestUser55@cmentor.com",
+        "Email": "tammi@cmentor.com",
+        "Alias": "TammiTst",
+        "LastName": "Krobert",
+        "FirstName": "Tammi",
+        "ProfileId": "Financial",
+        "TimeZoneSidKey": "America/New_York"
+      }
+    ]
+  },
+  "date": {
+    "$date": "2023-07-18T21:11:02.285Z"
+  }
+}
