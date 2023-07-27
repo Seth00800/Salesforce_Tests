@@ -146,7 +146,7 @@ export const createSfUser = async(token, config, idArr, userDataObjArr) => {
                 headers: headers
             })
             const rawRespJson = await rawResp.json()
-            console.log("This is HTTP Status For: "+ updatedMergeArr[i] +" "+rawRespJson.status)
+            console.log("This is HTTP Status For: "+ JSON.stringify(updatedMergeArr[i].Username, null, 2) +" "+rawRespJson.status)
         }
     }catch (e) {
         console.log("In API Call To Create New User")
