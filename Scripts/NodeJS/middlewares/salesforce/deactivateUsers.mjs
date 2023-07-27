@@ -33,11 +33,11 @@ export const deactivateUsers = async(req, res, next) => {
                     const myStatus = myRawResp.status
                     console.log(myRawResp.status)
                     if(myStatus === 204){
-                        console.log("Successfully Deactivated User: "+ myUserList[i])
-                        successful.push("Successfully Deactivated User: "+ myUserList[i] + " Status: "+myStatus)
+                        console.log("Successfully Deactivated User: "+ JSON.stringify(myUserList[i].loginId, null, 2))
+                        successful.push("Successfully Deactivated User: "+ JSON.stringify(myUserList[i].loginId + " Status: "+myStatus))
                     }else {
-                        console.log("Failed To Deactivate User: "+myUserList[i] + " Status: "+myStatus)
-                        failed.push("Failed To Deactivate User: "+myUserList[i] + " Status: "+myStatus)
+                        console.log("Failed To Deactivate User: "+JSON.stringify(myUserList[i].loginId, null, 2) + " Status: "+myStatus)
+                        failed.push("Failed To Deactivate User: "+JSON.stringify(myUserList[i].loginId, null, 2) + " Status: "+myStatus)
                     }
 
                 } catch (e) {
@@ -52,12 +52,14 @@ export const deactivateUsers = async(req, res, next) => {
                     next(e)
                 }
             }
-            res.statusCode = 200
-            res.message = "Successfully Deactivated All Or Part Of Login Ids Specified"
-            res.success = {
+
+            const myJSONResp = {
                 "successful": successful,
                 "failed": failed
             }
+            res.statusCode = 200
+            res.message = "Successfully Deactivated All Or Part Of Login Ids Specified"
+            res.success = JSON.stringify(myJSONResp, null, 2)
             console.log(res.success)
             next()
         }catch (e) {

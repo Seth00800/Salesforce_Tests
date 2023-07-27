@@ -163,11 +163,12 @@ export const createUsers = async(req, res, next) => {
                 }
             }
         }
-        res.statusCode = 200
-        res.message = "Successfully Updated Salesforce User Listing With New User Array"
-        res.success = {
+        const myJSONResp = {
             "updatedMergedArray": updatedMergeArr
         }
+        res.statusCode = 200
+        res.message = "Successfully Updated Salesforce User Listing With New User Array"
+        res.success = JSON.stringify(myJSONResp, null, 2)
         console.log(res.success)
         next()
     }catch (e){
@@ -192,11 +193,12 @@ export const createUsers = async(req, res, next) => {
             const rawRespJson = await rawResp.json()
             console.log("This is HTTP Status For: "+ JSON.stringify(updatedMergeArr[i].Username) +" HTTP STATUS: "+rawResp.status)
         }
+        const myJSONResp = {
+            "updatedMergedArray": updatedMergeArr
+        }
         res.statusCode = 200
         res.message = "Successfully Updated Salesforce User Listing With New User Array"
-        res.success = {
-            "updatedMergedArray": JSON.stringify(updatedMergeArr, null, 2)
-        }
+        res.success = JSON.stringify(myJSONResp, null, 2)
         console.log(res.success)
         next()
     }catch (e) {

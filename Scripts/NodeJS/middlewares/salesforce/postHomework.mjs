@@ -4,6 +4,7 @@ import { configVars } from "../../../../Config/configVars.mjs";
 
 
 export const postHomework = async(req, res, next) => {
+    console.log("I AM IN POST HOMEWORK")
     let myQP;
     const requiredEle = JSON.stringify(["id", "version", "type", "object", "homework"])
     const bodyEle = JSON.stringify(Object.keys(req.body))

@@ -50,12 +50,13 @@ export const activateUsers = async(req, res, next) => {
                 next(e)
             }
         }
-        res.statusCode = 200
-        res.message = "Successfully Activated All Or Part Of Login Ids Specified"
-        res.success = {
+        const myJSONResp = {
             "successful": successful,
             "failed": failed
         }
+        res.statusCode = 200
+        res.message = "Successfully Activated All Or Part Of Login Ids Specified"
+        res.success = JSON.stringify(myJSONResp, null, 2)
         console.log(res.success)
         next()
     }catch (e){
