@@ -31,4 +31,4 @@ export const getToken = async() => {
 
 }
 
-await getToken()
+// await getToken()
