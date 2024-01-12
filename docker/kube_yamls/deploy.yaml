@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: salesforceapi
-          image: salesforceapi:1.0.0
+          image: 698940110446.dkr.ecr.us-east-1.amazonaws.com/salesforceapi:1.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: MONGODB_LOCAL_USER

@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 import {qpExtract} from "../queryparams/getQueryParams.mjs";
-import {mongoConnectGet} from "../databases/mongodb/mongodb.mjs";
+// import {mongoConnectGet} from "../databases/mongodb/mongodb.mjs";
 import {configVars} from "../../../../Config/configVars.mjs";
 
 

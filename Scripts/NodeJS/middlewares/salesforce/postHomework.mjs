@@ -1,25 +1,26 @@
 import { qpExtract } from "../queryparams/getQueryParams.mjs";
-import { mongoConnectPost } from "../databases/mongodb/mongodb.mjs";
+
+import { mongoConnectPost } from "../databases/mongodb/mongoClient.mjs"
 import { configVars } from "../../../../Config/configVars.mjs";
 
 
 export const postHomework = async(req, res, next) => {
     console.log("I AM IN POST HOMEWORK")
-    let myQP;
+    let myQP = req.query;
     const requiredEle = JSON.stringify(["id", "version", "type", "object", "homework"])
     const bodyEle = JSON.stringify(Object.keys(req.body))
 
     try {
-
         if(requiredEle === bodyEle) {
             myQP = await qpExtract(req, res, next)
-            myQP.homework = req.body
+            myQP.type = req.body
+            console.log(myQP)
         }else{
             throw new Error
         }
 
-        console.log("THESE ARE MY PASSED QP's: " + JSON.stringify(myQP))
-        const result = await mongoConnectPost(myQP, configVars.mongoUname, configVars.mongoPwd, configVars.mongoUrl, configVars.mongoUrlPrefix)
+        const result = await mongoConnectPost(myQP, req, res, next)
+        console.log(result)
 
         if(result.acknowledged === true) {
             console.log("I am in IF")

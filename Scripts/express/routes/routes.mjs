@@ -6,7 +6,7 @@ import { appJsonHeader, authCheck } from "../../NodeJS/middlewares/contentchecks
 import { SuccessHandler } from "../../NodeJS/middlewares/resphandlers/success.mjs";
 import { healthStatus } from "../../NodeJS/middlewares/health/checkHealth.mjs";
 import { bodyData } from "../../NodeJS/middlewares/contentchecks/body/bodyCheck.mjs";
-import { qpCheck } from "../../NodeJS/middlewares/queryparams/getQueryParams.mjs";
+import {qpCheck, qpExtract} from "../../NodeJS/middlewares/queryparams/getQueryParams.mjs";
 import { createUsers, getProfileIds } from "../../NodeJS/middlewares/salesforce/createNewUsers.mjs";
 import { postHomework } from "../../NodeJS/middlewares/salesforce/postHomework.mjs";
 import { deactivateUsers } from "../../NodeJS/middlewares/salesforce/deactivateUsers.mjs";
@@ -21,7 +21,7 @@ api.use( bodyData )
 
 
 //GET Methods
-api.get('/health', qpCheck, healthStatus, (req, res, next) => {
+api.get('/health', healthStatus, (req, res, next) => {
     console.log("EXITED health")
     next()
 })
@@ -37,7 +37,7 @@ api.post('/createUsers', qpCheck, createUsers, (req, res, next) => {
     next()
 })
 
-api.post('/uploadHomework', qpCheck, postHomework, (req, res, next) => {
+api.post('/uploadHomework', postHomework, (req, res, next) => {
     console.log("EXITED uploadHomework")
     next()
 })

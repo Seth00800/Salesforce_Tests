@@ -9,7 +9,6 @@ export const bodyData = async(req, res, next) => {
             } else {
                 console.log("Request Payload Has Body Data Or Is Using Method Which Does Not Require It")
                 next()
-                return true
             }
     }catch (e) {
         e.statusCode = 400

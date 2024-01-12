@@ -9,7 +9,7 @@ COPY . .
 
 RUN npm install --verbose
 
-EXPOSE 8003
+EXPOSE 8004
 
 CMD ["node", "/app/Scripts/NodeJS/src/main/main.mjs"]
 
